@@ -1,0 +1,174 @@
+<div class="card card-custom gutter-b">
+
+  <div class="modal-content">
+    <!--<div class="modal-header">
+      <div class="modal-title h4" id="example-modal-sizes-title-lg">
+        <ng-container>
+          <ng-container>Modification</ng-container>
+          orphelin
+          <ng-container></ng-container>
+        </ng-container>
+      </div>
+    </div>-->
+
+    <div class="overlay overlay-block cursor-default modal-body" style="min-height: 404px;">
+      <ng-container>
+        <form class="form" novalidate="novalidate" id="kt_login_signup_form" [formGroup]="adoptionForm">
+
+          <div class="form-group row">
+            <div class="col-xl-2">
+              <label class="font-size-h6 font-weight-bolder text-dark">
+                <h5>Date d'adoption</h5>
+              </label>
+            </div>
+            <div class="col-xl-2">
+              <input class="form-control form-control-lg form-control-solid" type="date" formControlName="date"
+                id="inputWarning" placeholder="Prénom" autocomplete="off"/>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'Ce champ est obligatoire',
+                  control: adoptionForm.controls['date']
+                }"></ng-container>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-xl-2">
+              <label class="font-size-h6 font-weight-bolder text-dark">
+                <h5>Orphelin</h5>
+              </label>
+            </div>
+            <div class="col-xl-2">
+              <input type="text" class="form-control" placeholder="Rechercher" value=""
+                [(ngModel)]="searchTerm" /><small class="form-text text-muted"><b>{{searchTerm}}</b></small>
+            </div>
+
+            <div class="col-xl-8">
+              <mat-select class="form-control form-control-lg form-control-solid" formControlName="orphelin"
+                autocomplete="off">
+                <mat-option *ngFor="let orp of listOrphelins|filter:searchTerm" [value]="orp">{{ orp.id }}- {{ orp.nom
+                  }} {{ orp.prenom }} </mat-option>
+              </mat-select>
+            </div>
+          </div>
+
+          <ng-container>
+            <h5 class="font-size-h6 font-weight-bolder text-dark">Tuteur</h5>
+          </ng-container>
+          <div class="form-group row">
+            <div class="col-xl-3">
+              <label class="font-size-h6 font-weight-bolder text-dark">Prénom</label>
+              <input class="form-control form-control-lg form-control-solid" type="text" formControlName="prenomtut"
+                id="inputWarning" placeholder="Prénom" autocomplete="off" style="text-transform: capitalize;" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'Ce champ est obligatoire',
+                  control: adoptionForm.controls['prenomtut']
+                }"></ng-container>
+              </div>
+            <div class="col-xl-3">
+              <label class="font-size-h6 font-weight-bolder text-dark">Nom</label>
+              <input class="form-control form-control-lg form-control-solid" style="text-transform: capitalize;"
+                type="text" class="form-control form-control-lg form-control-solid" formControlName="nomtut"
+                placeholder="Nom" autocomplete="off" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'Ce champ est obligatoire',
+                  control: adoptionForm.controls['nomtut']
+                }"></ng-container>
+            </div>
+            <div class="col-xl-3">
+              <label class="font-size-h6 font-weight-bolder text-dark">Email</label>
+              <input class="form-control form-control-lg form-control-solid" type="text"
+                class="form-control form-control-lg form-control-solid" formControlName="emailtut" autocomplete="off" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'Ce champ est obligatoire',
+                  control: adoptionForm.controls['emailtut']
+                }"></ng-container>
+              </div>
+            <div class="col-xl-3">
+              <label class="font-size-h6 font-weight-bolder text-dark">Sexe</label>
+              <mat-select class="form-control form-control-lg form-control-solid" formControlName="sexetut"
+                autocomplete="off">
+                <mat-option *ngFor="let sex of sexes" [value]="sex.value">{{ sex.viewValue }}</mat-option>
+              </mat-select>
+              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                validation: 'required',
+                message: 'Ce champ est obligatoire',
+                control: adoptionForm.controls['sexetut']
+              }"></ng-container>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-xl-3">
+              <label class="font-size-h6 font-weight-bolder text-dark">Téléphone</label>
+              <input type="text" class="form-control form-control-lg form-control-solid" formControlName="telephonetut"
+                placeholder="adresse" autocomplete="off" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'Ce champ est obligatoire',
+                  control: adoptionForm.controls['telephonetut']
+                }"></ng-container>
+            </div>
+            <div class="col-xl-3">
+              <label class="font-size-h6 font-weight-bolder text-dark">Adresse</label>
+              <input type="text" class="form-control form-control-lg form-control-solid" formControlName="adressetut"
+                placeholder="adresse" style="text-transform: capitalize;" autocomplete="off" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'Ce champ est obligatoire',
+                  control: adoptionForm.controls['adressetut']
+                }"></ng-container>
+              </div>
+            <div class="col-xl-3">
+              <label class="font-size-h6 font-weight-bolder text-dark">Cni</label>
+              <input type="text" class="form-control form-control-lg form-control-solid" formControlName="cnitut"
+                placeholder="" autocomplete="off" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'Ce champ est obligatoire',
+                  control: adoptionForm.controls['cnitut']
+                }"></ng-container>
+            </div>
+            <div class="col-xl-3">
+              <label class="font-size-h6 font-weight-bolder text-dark">Infos supplémentaires</label>
+              <input type="text" class="form-control form-control-lg form-control-solid" formControlName="infosup"
+                placeholder="" style="text-transform: capitalize;" autocomplete="off" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'Ce champ est obligatoire',
+                  control: adoptionForm.controls['infosup']
+                }"></ng-container>
+            </div>
+          </div>
+
+          <div class="form-group d-flex flex-wrap pb-lg-0 pb-3">
+            <button type="submit" id="kt_login_signup_submit"
+              class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4"
+              [disabled]="adoptionForm.invalid" (click)="submit(adoptionForm.value)">
+              Valider
+            </button>
+            <button (click)="annuler()" type="reset"
+              class="btn btn-danger font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">
+              Annuler
+            </button>
+          </div>
+        </form>
+      </ng-container>
+    </div>
+  </div>
+
+
+</div>
+
+<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+  <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+    <div class="fv-plugins-message-container">
+      <div class="fv-help-block">
+        {{ message }}
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

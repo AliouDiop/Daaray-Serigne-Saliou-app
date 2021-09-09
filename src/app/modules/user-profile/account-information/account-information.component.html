@@ -1,0 +1,129 @@
+<ng-container *ngIf="user">
+  <div class="card card-custom" [formGroup]="formGroup">
+    <!-- begin::Loading -->
+    <ng-container *ngIf="isLoading$ | async">
+      <div class="progress progress-modal">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
+          style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </ng-container>
+    <!-- end::Loading -->
+    <!--begin::Header-->
+    <div class="card-header py-3">
+      <div class="card-title align-items-start flex-column">
+        <h3 class="card-label font-weight-bolder text-dark">Information du compte</h3>
+        <span class="text-muted font-weight-bold font-size-sm mt-1">modifier la configuration de votre compte</span>
+      </div>
+      <div class="card-toolbar" *ngIf="editable">
+        <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-2" (click)="save()">Save
+          Changes</button>
+        <button type="reset" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+      </div>
+      <div class="card-toolbar" *ngIf="!editable">
+        <button type="submit"   class="btn btn-success mr-2" (click)="editable = !editable">Editer</button>
+         
+      </div>
+    </div>
+    <!--end::Header-->
+    <!--begin::Form-->
+    <div class="form">
+      <div class="card-body">
+        <!--begin::Heading-->
+        <div class="row">
+          <label class="col-xl-3"></label>
+          <div class="col-lg-9 col-xl-6">
+            <h5 class="font-weight-bold mb-6">Compte:</h5>
+          </div>
+        </div>
+        <!--begin::Form Group-->
+        <div class="form-group row">
+          <label class="col-xl-3 col-lg-3 col-form-label">Identifiant</label>
+          <div class="col-lg-9 col-xl-6">
+            <div>
+              <input class="form-control form-control-lg form-control-solid" type="text" formControlName="username"
+                [class.is-invalid]="isControlInvalid('username')" [class.is-valid]="isControlValid('username')" />
+               <div class="valid-feedback"  *ngIf="loginexist">Ce login est déjâ utilisé</div>
+
+            </div>
+          </div>
+        </div>
+        <!--begin::Form Group-->
+        <div class="form-group row">
+          <label class="col-xl-3 col-lg-3 col-form-label"> Addresse Email</label>
+          <div class="col-lg-9 col-xl-6">
+            <div class="input-group input-group-lg input-group-solid">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-at"></i>
+                </span>
+              </div>
+              <input type="email" class="form-control form-control-lg form-control-solid" placeholder="Email"
+                formControlName="email" [class.is-invalid]="isControlInvalid('email')"
+                [class.is-valid]="isControlValid('email')" />
+            </div>
+            <span class="form-text text-muted">Email will not be publicly displayed.
+              <a class="font-weight-bold">Learn more</a>.</span>
+          </div>
+        </div>
+        <!--begin::Form Group-->
+         
+        <!--begin::Form Group-->
+         
+        <!--begin::Form Group-->
+        <div class="form-group row align-items-center">
+          <label class="col-xl-3 col-lg-3 col-form-label">Communication</label>
+          <div class="col-lg-9 col-xl-6">
+            <div class="checkbox-inline">
+              <label class="checkbox">
+                <input type="checkbox"   />
+                <span></span>Email</label>
+              <label class="checkbox">
+                <input type="checkbox"   />
+                <span></span>SMS</label>
+              <label class="checkbox">
+                <input type="checkbox"   />
+                <span></span>Phone</label>
+            </div>
+          </div>
+        </div>
+        <!--begin::Form Group-->
+        <div class="separator separator-dashed my-5"></div>
+        <!--begin::Form Group-->
+        <div class="row">
+          <label class="col-xl-3"></label>
+          <div class="col-lg-9 col-xl-6">
+            <h5 class="font-weight-bold mb-6">Security:</h5>
+          </div>
+        </div>
+        <!--begin::Form Group-->
+        <div class="form-group row">
+          <label class="col-xl-3 col-lg-3 col-form-label">Login verification</label>
+          <div class="col-lg-9 col-xl-6">
+            <button type="button" class="btn btn-light-primary font-weight-bold btn-sm">Setup login
+              verification</button>
+            <p class="form-text text-muted pt-2">After you log in, you will be asked for additional information to
+              confirm your identity and protect your account from being compromised.
+              <a class="font-weight-bold cursor-pointer">Learn more</a>.</p>
+          </div>
+        </div>
+        <!--begin::Form Group-->
+        <div class="form-group row">
+          <label class="col-xl-3 col-lg-3 col-form-label">Password reset verification</label>
+          <div class="col-lg-9 col-xl-6">
+            <div class="checkbox-inline">
+              <label class="checkbox m-0">
+                <input type="checkbox" />
+                <span></span>Require personal information to reset your password.</label>
+            </div>
+            <p class="form-text text-muted py-2">For extra security, this requires you to confirm your email or phone
+              number when you reset your password.
+              <a class="font-weight-boldk cursor-pointer">Learn more</a>.</p>
+            <button type="button" class="btn btn-light-danger font-weight-bold btn-sm">Deactivate your account
+              ?</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end::Form-->
+  </div>
+</ng-container>

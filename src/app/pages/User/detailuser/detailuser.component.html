@@ -1,0 +1,84 @@
+<div class="modal-content" style="color:black;">
+    <div class="overlay overlay-block cursor-default modal-body" id="component" style="min-height: 404px;">
+
+        <div class="container-fluid" >
+            <div class=" itemss-group">
+
+                <div class="row no-gutters" style="padding:4px 7px 0px 7px;">
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-7 col-lg-offset-1">
+                        <ng-container><img alt="Logo" src="./assets/media/logos/logo_ODSS_sm.png" /></ng-container>
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-2 col-lg-offset-1 text-center">
+                        <ng-container>
+                            <h5>Fiche</h5>
+                            <p>Informations utilisateur</p>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <div class="row no-gutters ">
+                    
+                    <div class="col-xs  items-group" style="padding:7px;">
+                        <div class="image-input image-input-outline" id="kt_profile_avatar" [class.image-input-empty]=""
+                            [style.backgroundImage]="photo2">
+                            <div class="image-input-wrapper" [style.backgroundImage]="photo2"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm  items-group" style="padding:7px;">
+                        <div class="row no-gutters ">
+                            <div class="col-xs">
+                                <div class="address">
+                                    <p>ID</p>
+                                    <p>Prénom&nbsp;&nbsp;&nbsp;</p>
+                                    <p>Nom</p>
+                                    <p>Sexe</p>
+                                    <p>Date création&nbsp;&nbsp;&nbsp;</p>
+                                    <p>Login&nbsp;&nbsp;&nbsp;</p>
+                                </div>
+                            </div>
+                            <div class="col-sm ">
+                                <div class="address">
+                                    <p>:&nbsp;&nbsp;&nbsp;{{userLoad.id}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{userLoad.prenom}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{userLoad.nom}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{userLoad.sexe}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{datecreation}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{userLoad.username}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm  items-group" style="padding:7px;">
+                        <div class="row no-gutters ">
+                            <div class="col-xs">
+                                <div class="address">
+                                    <p>Date de naissance&nbsp;&nbsp;&nbsp;</p>
+                                    <p>Adresse</p>
+                                    <p>Téléphone</p>
+                                    <p>Email&nbsp;&nbsp;&nbsp;</p>
+                                    <p>Profil</p>
+                                </div>
+                            </div>
+                            <div class="col-sm ">
+                                <div class="address">
+                                    <p>:&nbsp;&nbsp;&nbsp;{{datenaiss}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{userLoad.adresse}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{userLoad.telephone}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{userLoad.email}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{userLoad.profile}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        
+        <button type="button" class="btn btn-light btn-elevate mr-2" (click)="modal.dismiss()">Retour</button>
+
+    </div>
+</div>

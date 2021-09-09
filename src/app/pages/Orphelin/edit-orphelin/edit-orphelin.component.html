@@ -1,0 +1,117 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <div class="modal-title h4" id="example-modal-sizes-title-lg">
+      <ng-container>
+        <ng-container>Modification</ng-container>
+        orphelin
+        <ng-container></ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="overlay overlay-block cursor-default modal-body" style="min-height: 404px;">
+    <ng-container>
+      <form class="form" novalidate="novalidate" id="kt_login_signup_form" [formGroup]="orphelinForm">
+        <ng-container>
+          <h5>Orphelin</h5>
+        </ng-container>
+        <div class="form-group row">
+          <div class="col-xl-3">
+            <label>Prénom</label>
+            <input class="form-control form-control-lg form-control-solid" type="text" formControlName="prenomorp"
+              id="inputWarning" autocomplete="off" />
+
+          </div>
+          <div class="col-xl-3">
+            <label>Nom</label>
+            <input class="form-control form-control-lg form-control-solid" name="nomorp" type="text"
+              formControlName="nomorp" autocomplete="off" />
+          </div>
+          <div class="col-xl-3">
+            <label>Date de naissance</label>
+            <input class="form-control form-control-lg form-control-solid" type="date"
+              class="form-control form-control-lg form-control-solid" formControlName="datenaissorp"
+              autocomplete="off" />
+
+          </div>
+          <div class="col-xl-3">
+            <label>Sexe</label>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-xl-4">
+            <label>Situation</label>
+          </div>
+          <div class="col-xl-4">
+            <label>Adresse</label>
+            <input type="text" class="form-control form-control-lg form-control-solid" formControlName="adresseorp"
+              placeholder="adresse" autocomplete="off" />
+          </div>
+          <div class="col-xl-4">
+            <label>Infos supplémentaires</label>
+            <input type="text" class="form-control form-control-lg form-control-solid" formControlName="infossuporp"
+              placeholder="" autocomplete="off" />
+          </div>
+        </div>
+
+        <ng-container>
+          <h5>Tuteur</h5>
+        </ng-container>
+        <div class="form-group row">
+          <div class="col-xl-3">
+            <label>Prénom</label>
+            <input class="form-control form-control-lg form-control-solid" type="text" formControlName="prenomtut"
+              id="inputWarning" placeholder="Prénom" autocomplete="off" style="text-transform: capitalize;" />
+
+          </div>
+          <div class="col-xl-3">
+            <label>Nom</label>
+            <input class="form-control form-control-lg form-control-solid" style="text-transform: capitalize;"
+              type="text" class="form-control form-control-lg form-control-solid" formControlName="nomtut"
+              placeholder="Nom" autocomplete="off" />
+          </div>
+          <div class="col-xl-3">
+            <label>Email</label>
+            <input class="form-control form-control-lg form-control-solid" type="text"
+              class="form-control form-control-lg form-control-solid" formControlName="emailtut" autocomplete="off" />
+          </div>
+          <div class="col-xl-3">
+            <label>Sexe</label>
+            <mat-select class="form-control form-control-lg form-control-solid" formControlName="sexetut"
+              autocomplete="off">
+              <mat-option *ngFor="let sex of sexes" [value]="sex.value">{{ sex.viewValue }}</mat-option>
+            </mat-select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-xl-4">
+            <label>Téléphone</label>
+            <input type="text" class="form-control form-control-lg form-control-solid" formControlName="telephonetut"
+              placeholder="adresse" autocomplete="off" />
+          </div>
+          <div class="col-xl-4">
+            <label>Adresse</label>
+            <input type="text" class="form-control form-control-lg form-control-solid" formControlName="adressetut"
+              placeholder="adresse" autocomplete="off" />
+          </div>
+          <div class="col-xl-4">
+            <label>Cni</label>
+            <input type="text" class="form-control form-control-lg form-control-solid" formControlName="cnitut"
+              placeholder="" autocomplete="off" />
+          </div>
+        </div>
+      </form>
+    </ng-container>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light btn-elevate mr-2" (click)="modal.dismiss()">Cancel</button>
+    <ng-container>
+
+      <button type="submit" class="btn btn-primary btn-elevate" (click)="save()"
+        [disabled]="orphelinForm.invalid">Save</button>
+    </ng-container>
+  </div>
+</div>

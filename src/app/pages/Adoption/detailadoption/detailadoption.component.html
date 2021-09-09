@@ -1,0 +1,222 @@
+<div class="modal-content" style="color:black;">
+    <div class="overlay overlay-block cursor-default modal-body" id="component" style="min-height: 404px;">
+
+        <div class="container-fluid">
+            <div class=" itemss-group">
+
+                <div class="row no-gutters" style="padding:4px 7px 0px 7px;">
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-7 col-lg-offset-1">
+                        <ng-container><img alt="Logo" src="./assets/media/logos/logo_ODSS_sm.png" /></ng-container>
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-2 col-lg-offset-1 text-center">
+                        <ng-container>
+                            <h5>Fiche</h5>
+                            <p>Informations adoption</p>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="row no-gutters ">
+                    <div class="col-md item-group">
+                        <div class="row no-gutters ">
+                            <div class="col-xs" style="padding:0px 0px 0px 20px;">
+                                <div class="address">
+                                    <h3><u>Détails adoption</u></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters ">
+                    <div class="col-sm  items-group" style="padding:7px;">
+                        <div class="row no-gutters ">
+                            <div class="col-sm">
+                                <div class="address">
+                                    <p>ID&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;{{adoptionLoad.id}}</p>
+                                </div>
+                            </div>
+                            <div class="col-sm ">
+                                <div class="address">
+                                    <p>Date&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;{{datecreation}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row no-gutters ">
+                    <div class="col-md item-group">
+                        <div class="row no-gutters ">
+                            <div class="col-xs" style="padding:0px 0px 0px 20px;">
+                                <div class="address">
+                                    <h3><u>Orphelin</u></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters ">
+                    <div class="col-xs  items-group" style="padding:7px;">
+                        <div class="image-input image-input-outline" id="kt_profile_avatar" [class.image-input-empty]=""
+                            [style.backgroundImage]="photo2">
+                            <div class="image-input-wrapper" [style.backgroundImage]="photo2"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm  items-group" style="padding:7px;">
+                        <div class="row no-gutters ">
+                            <div class="col-xs">
+                                <div class="address">
+                                    <p>ID</p>
+                                    <p>Prénom&nbsp;&nbsp;&nbsp;</p>
+                                    <p>Nom</p>
+                                    <p>Sexe</p>
+                                </div>
+                            </div>
+                            <div class="col-sm ">
+                                <div class="address">
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.orphelin.id}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.orphelin.prenom}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.orphelin.nom}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.orphelin.sexe}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm  items-group" style="padding:7px;">
+                        <div class="row no-gutters ">
+                            <div class="col-xs">
+                                <div class="address">
+                                    <p>Date de naissance&nbsp;&nbsp;&nbsp;</p>
+                                    <p>Adresse</p>
+                                    <p>Situation</p>
+                                    <p>Infos supplémentaires&nbsp;&nbsp;&nbsp;</p>
+
+                                </div>
+                            </div>
+                            <div class="col-sm ">
+                                <div class="address">
+                                    <p>:&nbsp;&nbsp;&nbsp;{{datenaissanceorp}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.orphelin.adresse}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.orphelin.situation}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.orphelin.infossup}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row no-gutters ">
+                    <div class="col-md item-group">
+                        <div class="row no-gutters ">
+                            <div class="col-xs" style="padding:0px 0px 0px 20px;">
+                                <div class="address">
+                                    <h3><u>Tuteur adoptif</u></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters ">
+
+                    
+                    <div class="col-sm  items-group" style="padding:7px;">
+                        <div class="row no-gutters ">
+                            <div class="col-xs">
+                                <div class="address">
+                                    <p>Prénom&nbsp;&nbsp;&nbsp;</p>
+                                    <p>Nom</p>
+                                    <p>Sexe</p>
+
+                                </div>
+                            </div>
+                            <div class="col-sm ">
+                                <div class="address">
+
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.tuteur.prenom}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.tuteur.nom}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.tuteur.sexe}}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm  items-group" style="padding:7px;">
+                        <div class="row no-gutters ">
+                            <div class="col-xs">
+                                <div class="address">
+                                    <p>Téléphone&nbsp;&nbsp;&nbsp;</p>
+                                    <p>Adresse</p>
+                                    <p>Email</p>
+                                </div>
+                            </div>
+                            <div class="col-sm ">
+                                <div class="address">
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.tuteur.telephone}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.tuteur.adresse}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.tuteur.email}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row no-gutters ">
+                    <div class="col-md item-group">
+                        <div class="row no-gutters ">
+                            <div class="col-xs" style="padding:0px 0px 0px 20px;">
+                                <div class="address">
+                                    <h4><u>Détails utilisateur</u></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters ">
+                    <div class="col-sm  items-group" style="padding:7px;">
+                        <div class="row no-gutters ">
+                            <div class="col-xs">
+                                <div class="address">
+                                    <p>Prénom utilisateur inscripteur&nbsp;&nbsp;&nbsp;</p>
+                                    <p>Nom utilisateur inscripteur</p>
+                                </div>
+                            </div>
+                            <div class="col-sm ">
+                                <div class="address">
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.usercreateur.prenom}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.usercreateur.nom}}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm  items-group" style="padding:7px;">
+                        <div class="row no-gutters ">
+                            <div class="col-xs">
+                                <div class="address">
+                                    <p>Email utilisateur inscripteur&nbsp;&nbsp;&nbsp;</p>
+                                    <p>Date &nbsp;&nbsp;&nbsp;</p>
+                                </div>
+                            </div>
+                            <div class="col-sm ">
+                                <div class="address">
+                                    <p>:&nbsp;&nbsp;&nbsp;{{adoptionLoad.usercreateur.email}}</p>
+                                    <p>:&nbsp;&nbsp;&nbsp;{{dateinscrite}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light btn-elevate mr-2" (click)="modal.dismiss()">Retour</button>
+
+    </div>
+</div>

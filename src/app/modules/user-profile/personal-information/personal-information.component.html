@@ -1,0 +1,153 @@
+<ng-container *ngIf="user">
+  <div class="card card-custom card-stretch" [formGroup]="formGroup">
+    <!-- begin::Loading -->
+    <ng-container *ngIf="isLoading$ | async">
+      <div class="progress progress-modal">
+        <div
+          class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
+          role="progressbar"
+          style="width: 100%"
+          aria-valuenow="100"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+    </ng-container>
+    <!-- end::Loading -->
+    <!--begin::Header-->
+    <div class="card-header py-3">
+      <div class="card-title align-items-start flex-column">
+        <h3 class="card-label font-weight-bolder text-dark">Informations Personnelles</h3>
+        <span class="text-muted font-weight-bold font-size-sm mt-1">Mettez à jour vos informations </span>
+      </div>
+      <div class="card-toolbar" *ngIf="editable">
+        <button type="submit" [disabled]="formGroup.invalid" class="btn btn-success mr-2"  (click)="save()">Save Changes</button>
+        <button type="reset" class="btn btn-secondary" (click)="cancel(); editable = !editable">Cancel</button>
+      </div>
+      <div class="card-toolbar">
+        <button type="submit"  class="btn btn-success mr-2" *ngIf="!editable"  (click)="editable = !editable">Editer</button>
+      </div>
+    </div>
+    <!--end::Header-->
+    <!--begin::Form-->
+    <div class="form">
+      <!--begin::Body-->
+      <div class="card-body">
+        <div class="row">
+          <label class="col-xl-3"></label>
+          <div class="col-lg-9 col-xl-6">
+            <h5 class="font-weight-bold mb-6"> Informations</h5>
+          </div>
+        </div>
+        <!--<div class="form-group row">
+          <label class="col-xl-3 col-lg-3 col-form-label">Photo</label>
+          <div class="col-lg-9 col-xl-6">
+            <div class="image-input image-input-outline"
+              id="kt_profile_avatar"
+              [class.image-input-empty]=""
+              [style.backgroundImage]="photo"
+            >
+              <div class="image-input-wrapper" [style.backgroundImage]=""></div>
+              <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                data-action="change"
+                data-toggle="tooltip"
+                title=""
+                data-original-title="Change avatar"
+              >
+                <i class="fa fa-pen icon-sm text-muted"></i>
+                 <input type="hidden" name="profile_avatar_remove"   />
+              </label>
+              <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                data-action="cancel" data-toggle="tooltip" title="" data-original-title="Cancel avatar">
+                <i class="ki ki-bold-close icon-xs text-muted"></i>
+              </span> 
+            </div>
+            <span class="form-text text-muted">Allowed file types: png, jpg, jpeg.</span>
+          </div>
+        </div>-->
+        <div class="form-group row">
+          <label class="col-xl-3 col-lg-3 col-form-label">Prenom</label>
+          <div class="col-lg-9 col-xl-6">
+            <input class="form-control form-control-lg form-control-solid" [disabled]="!editable"
+              type="text"
+              formControlName="prenom"
+              [class.is-invalid]="isControlInvalid('prenom')"
+              [class.is-valid]="isControlValid('prenom')"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-xl-3 col-lg-3 col-form-label">Nom</label>
+          <div class="col-lg-9 col-xl-6">
+            <input [disabled]="!editable" class="form-control form-control-lg form-control-solid"
+              type="text"
+              value="Bold"
+              formControlName="nom"
+              [class.is-invalid]="isControlInvalid('nom')"
+              [class.is-valid]="isControlValid('nom')"
+            />
+          </div>
+        </div> 
+        <div class="row">
+          <label class="col-xl-3"></label>
+          <div class="col-lg-9 col-xl-6">
+            <h5 class="font-weight-bold mt-10 mb-6">Contact Info</h5>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-xl-3 col-lg-3 col-form-label">N° Telephone</label>
+          <div class="col-lg-9 col-xl-6">
+            <div class="input-group input-group-lg input-group-solid">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-phone"></i>
+                </span>
+              </div>
+              <input type="number" [disabled]="!editable"
+                class="form-control form-control-lg form-control-solid" 
+                placeholder="Phone"
+                formControlName="telephone"
+                [class.is-invalid]="isControlInvalid('telephone')"
+                [class.is-valid]="isControlValid('telephone')"
+              />
+            </div>
+            <span class="form-text text-muted">We'll never share your email with anyone else.</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-xl-3 col-lg-3 col-form-label">Email </label>
+          <div class="col-lg-9 col-xl-6">
+            <div class="input-group input-group-lg input-group-solid">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-at"></i>
+                </span>
+              </div>
+              <input type="email" [disabled]="!editable"
+                class="form-control form-control-lg form-control-solid"
+                placeholder="Email"
+                formControlName="email"
+                [class.is-invalid]="isControlInvalid('email')"
+                [class.is-valid]="isControlValid('email')"
+              />
+            </div>
+          </div>
+        </div> 
+        <div class="form-group row">
+          <label class="col-xl-3 col-lg-3 col-form-label">Addrese</label>
+          <div class="col-lg-9 col-xl-6">
+            <input class="form-control form-control-lg form-control-solid" [disabled]="!editable"
+              type="text"
+              value="Bold"
+              formControlName="adresse"
+              [class.is-invalid]="isControlInvalid('adresse')"
+              [class.is-valid]="isControlValid('adresse')"
+            />
+          </div>
+        </div> 
+      </div>
+      <!--end::Body-->
+    </div>
+    <!--end::Form-->
+  </div>
+</ng-container>

@@ -1,0 +1,330 @@
+@import "src/assets/sass/pages/wizard/wizard-2";
+
+@media print {
+  :host {
+    display: none;
+  }
+}
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+img {
+  margin: 0;
+} /* margin reset*/
+h1 {
+  font-size: 18pt;
+  font-weight: 500;
+  margin-bottom: 0.5cm;
+}
+h2 {
+  font-size: 16pt;
+  font-weight: 500;
+}
+p {
+  font-size: 12pt;
+}
+
+.itemss-group {
+  border-style: solid;
+  border-color: black;
+  border-width: 1pt 1pt 1pt 1pt;
+  border-radius: 5pt;
+  padding: 3pt 3pt 3pt 3pt;
+  margin: 9pt 9pt 9pt 9pt;
+}
+.items-group {
+  border-style: solid;
+  border-color: black;
+  border-width: 1pt 1pt 1pt 1pt;
+  border-radius: 5pt;
+  padding: 3pt 3pt 3pt 3pt;
+  margin: 9pt 4pt 9pt 4pt;
+}
+.logotipo {
+  width: 6cm;
+  height: 4cm;
+  margin: -0.5cm;
+}
+
+.label {
+  font-weight: 500;
+}
+
+.disclaimer,
+.address p {
+  font-size: 10pt;
+}
+
+.signature-field {
+  padding-bottom: 24pt;
+  border-bottom: solid black 1pt;
+}
+
+/*
+.container {
+  display: grid;
+  grid: "numero numero"
+        "logo loja"
+        "clt-lbl clt"
+        "da-lbl da";
+  grid-row-gap: 1cm;
+}
+
+.label-group {
+  border-left: solid black 1pt;
+  border-top: solid black 1pt;
+  border-top-left-radius: 10pt;
+  padding: 9pt 0 0 9pt
+}
+
+.description-group {
+  border-top: solid black 1pt;
+  padding: 9pt 0 0 9pt
+}
+
+.numero {
+  grid-area: numero;
+}
+
+.loja {
+  grid-area: loja;
+}
+
+.logotipo {
+  grid-area: logo;
+}
+
+.cliente-label {
+  grid-area: clt-lbl;
+}
+
+.cliente {
+  grid-area: clt;
+}
+
+.detalhes-assistencia-label {
+  grid-area: da-lbl;
+}
+
+.detalhes-assistencia {
+  grid-area: da;
+}
+
+*/
+
+@media print {
+  :host {
+    display: none;
+  }
+}
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+img {
+  margin: 0;
+} /* margin reset*/
+h1 {
+  font-size: 18pt;
+  font-weight: 500;
+  margin-bottom: 0.5cm;
+}
+h2 {
+  font-size: 16pt;
+  font-weight: 500;
+}
+p {
+  font-size: 12pt;
+}
+
+.itemss-group {
+  border-style: solid;
+  border-color: black;
+  border-width: 1pt 1pt 1pt 1pt;
+  border-radius: 5pt;
+  padding: 3pt 3pt 3pt 3pt;
+  margin: 15pt 9pt 9pt 0pt;
+}
+.items-group {
+  border-style: solid;
+  border-color: black;
+  border-width: 1pt 1pt 1pt 1pt;
+  border-radius: 5pt;
+  padding: 3pt 3pt 3pt 3pt;
+  margin: 9pt 4pt 9pt 4pt;
+}
+
+.item-group {
+  border-width: 1pt 1pt 1pt 1pt;
+  border-radius: 5pt;
+  padding: 0pt 3pt 0pt 3pt;
+  margin: 6pt 6pt 6pt 6pt;
+}
+.logotipo {
+  width: 6cm;
+  height: 4cm;
+  margin: -0.5cm;
+}
+
+.label {
+  font-weight: 500;
+}
+
+.disclaimer,
+.address p {
+  font-size: 10pt;
+}
+
+.signature-field {
+  padding-bottom: 24pt;
+  border-bottom: solid black 1pt;
+}
+
+/*
+  .container {
+    display: grid;
+    grid: "numero numero"
+          "logo loja"
+          "clt-lbl clt"
+          "da-lbl da";
+    grid-row-gap: 1cm;
+  }
+  
+  .label-group {
+    border-left: solid black 1pt;
+    border-top: solid black 1pt;
+    border-top-left-radius: 10pt;
+    padding: 9pt 0 0 9pt
+  }
+  
+  .description-group {
+    border-top: solid black 1pt;
+    padding: 9pt 0 0 9pt
+  }
+  
+  .numero {
+    grid-area: numero;
+  }
+  
+  .loja {
+    grid-area: loja;
+  }
+  
+  .logotipo {
+    grid-area: logo;
+  }
+  
+  .cliente-label {
+    grid-area: clt-lbl;
+  }
+  
+  .cliente {
+    grid-area: clt;
+  }
+  
+  .detalhes-assistencia-label {
+    grid-area: da-lbl;
+  }
+  
+  .detalhes-assistencia {
+    grid-area: da;
+  }
+  
+  */
+
+.form-1-box {
+  padding-top: 30px;
+  text-align: left;
+}
+
+.form-1-box legend {
+  font-size: inherit;
+  line-height: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.form-1-box .form-check-label {
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+.form-1-box input[type="text"],
+.form-1-box input[type="email"],
+.form-1-box input[type="password"] {
+  background: none;
+  border: 1px solid #ddd;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #888;
+  box-shadow: none;
+}
+
+.form-1-box input[type="text"]:focus,
+.form-1-box input[type="email"]:focus,
+.form-1-box input[type="password"]:focus {
+  outline: 0;
+  background: none;
+  border: 1px solid #db5d50;
+  box-shadow: none;
+}
+
+.form-1-box input[type="text"]::-moz-placeholder,
+.form-1-box input[type="email"]::-moz-placeholder,
+.form-1-box input[type="password"]::-moz-placeholder {
+  color: #bbb;
+  font-style: italic;
+}
+
+.form-1-box input[type="text"]:-ms-input-placeholder,
+.form-1-box input[type="email"]:-ms-input-placeholder,
+.form-1-box input[type="password"]:-ms-input-placeholder {
+  color: #bbb;
+  font-style: italic;
+}
+
+.form-1-box input[type="text"]::-webkit-input-placeholder,
+.form-1-box input[type="email"]::-webkit-input-placeholder,
+.form-1-box input[type="password"]::-webkit-input-placeholder {
+  color: #bbb;
+  font-style: italic;
+}
+
+.form-1-box button.btn-customized {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #db5d50;
+  border: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  box-shadow: none;
+}
+
+.form-1-box button.btn-customized:hover,
+.form-1-box button.btn-customized:active,
+.form-1-box button.btn-customized:focus,
+.form-1-box button.btn-customized:active:focus,
+.form-1-box button.btn-customized.active:focus,
+.form-1-box button.btn.btn-primary:not(:disabled):not(.disabled):active,
+.form-1-box button.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+  outline: 0;
+  background: #ca594d;
+  border: 0;
+  color: #fff;
+  box-shadow: none;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}

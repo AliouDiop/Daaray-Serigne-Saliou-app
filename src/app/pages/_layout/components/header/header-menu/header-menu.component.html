@@ -1,0 +1,157 @@
+<!-- begin::Header Nav -->
+<ul class="menu-nav" [ngClass]="ulCSSClasses">
+
+  <!-- Classic submenu -->
+  <!-- begin::1 Level -->
+  <li [attr.data-menu-toggle]="headerMenuDesktopToggle" aria-haspopup="true"
+    class="menu-item menu-item-submenu menu-item-rel" routerLinkActive="menu-item-active">
+    <a class="menu-link menu-toggle" href="/material" routerLinkActive="active">
+      <span class="menu-text">Gestion orphelin</span>
+      <i class="menu-arrow"></i>
+    </a>
+    <div class="menu-submenu menu-submenu-classic menu-submenu-left">
+      <ul class="menu-subnav">
+        <!-- Form Controls -->
+        <!-- begin::2 Level -->
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link" routerLink="/orphelin/ajout" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/Layers.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">Nouveau</span>
+          </a>
+        </li>
+        <!-- end::2 Level -->
+
+        <!-- Navigation  -->
+        <!-- begin::2 Level -->
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link" routerLink="/orphelin/liste" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/Layers.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">Liste</span>
+          </a>
+        </li>
+        <!-- end::2 Level -->
+
+      </ul>
+    </div>
+  </li>
+  <!-- end::1 Level -->
+
+  <!-- Classic submenu -->
+  <!-- begin::1 Level -->
+  <li [attr.data-menu-toggle]="headerMenuDesktopToggle" aria-haspopup="true"
+    class="menu-item menu-item-submenu menu-item-rel" routerLinkActive="menu-item-active">
+    <a class="menu-link menu-toggle" href="/material" routerLinkActive="active">
+      <span class="menu-text">Gestion adoption</span>
+      <i class="menu-arrow"></i>
+    </a>
+    <div class="menu-submenu menu-submenu-classic menu-submenu-left">
+      <ul class="menu-subnav">
+        <!-- Form Controls -->
+        <!-- begin::2 Level -->
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link" routerLink="/adoption/ajout" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/Layers.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">Nouveau</span>
+          </a>
+        </li>
+        <!-- end::2 Level -->
+
+        <!-- Navigation  -->
+        <!-- begin::2 Level -->
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link" routerLink="/adoption/liste" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/Layers.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">Liste</span>
+          </a>
+        </li>
+        <!-- end::2 Level -->
+      </ul>
+    </div>
+  </li>
+  <!-- end::1 Level -->
+
+  <!-- Classic submenu -->
+  <!-- begin::1 Level -->
+  <li [attr.data-menu-toggle]="headerMenuDesktopToggle" aria-haspopup="true"
+    class="menu-item menu-item-submenu menu-item-rel" routerLinkActive="menu-item-active">
+    <a class="menu-link menu-toggle" href="/material" routerLinkActive="active">
+      <span class="menu-text">Gestion des dons</span>
+      <i class="menu-arrow"></i>
+    </a>
+    <div class="menu-submenu menu-submenu-classic menu-submenu-left">
+      <ul class="menu-subnav">
+        <!-- Form Controls -->
+        <!-- begin::2 Level -->
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link" routerLink="/dons/ajout" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/Layers.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">Nouveau</span>
+          </a>
+        </li>
+        <!-- end::2 Level -->
+
+        <!-- Navigation  -->
+        <!-- begin::2 Level -->
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link" routerLink="/dons/liste" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/Layers.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">Liste</span>
+          </a>
+        </li>
+        <!-- end::2 Level -->
+      </ul>
+    </div>
+  </li>
+  <!-- end::1 Level -->
+
+
+  <!-- Classic submenu -->
+  <!-- begin::1 Level -->
+  <li *ngIf="user.profile=='Administrateur'" class="menu-item menu-item-submenu menu-item-rel" routerLinkActive="menu-item-active"
+    [attr.data-menu-toggle]="headerMenuDesktopToggle" aria-haspopup="true">
+    <a class="menu-link menu-toggle" routerLinkActive="active">
+      <span class="menu-text">Gestion utilisateur</span>
+      <i class="menu-arrow"></i>
+    </a>
+    <div class="menu-submenu menu-submenu-classic menu-submenu-left">
+      <ul class="menu-subnav">
+        <!-- Form Controls -->
+        <!-- begin::2 Level -->
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link" routerLink="/user/ajout" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/Layers.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">Nouveau</span>
+          </a>
+        </li>
+        <!-- end::2 Level -->
+
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link" routerLink="/user/liste" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/Layers.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">Liste</span>
+          </a>
+        </li>
+        <!-- end::2 Level -->
+
+      </ul>
+    </div>
+  </li>
+  <!-- end::1 Level -->
+</ul>
+<!-- end::Header Nav -->

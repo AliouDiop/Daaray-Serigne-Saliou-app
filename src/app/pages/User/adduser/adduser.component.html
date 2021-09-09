@@ -1,0 +1,316 @@
+<div class="card card-custom gutter-b">
+
+  <div class="modal-content">
+    <!--<div class="modal-header">
+      <div class="modal-title h4" id="example-modal-sizes-title-lg">
+        <ng-container>
+          <ng-container>Modification</ng-container>
+          orphelin
+          <ng-container></ng-container>
+        </ng-container>
+      </div>
+    </div>-->
+
+    <div class="overlay overlay-block cursor-default modal-body" style="min-height: 404px;">
+      <ng-container>
+        <!--begin::Signup-->
+        <ng-container *ngIf="isLoading$ | async">
+          <div class="progress progress-modal">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
+              style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </ng-container>
+        <div class="login-form login-signup">
+
+          <!--begin::Form-->
+          <form class="form" novalidate="novalidate" id="kt_login_signup_form" [formGroup]="registrationForm"
+            (ngSubmit)="submit(registrationForm.value)">
+
+
+            <!-- begin::row-->
+            <div class="row">
+              <!--begin::Form group-->
+              <div class="form-group col-md-3">
+                <label class="font-size-h6 font-weight-bolder text-dark">Prenom</label>
+                <input class="form-control form-control-solid h-auto py-5 px-6 rounded-lg font-size-h6" type="text"
+                  name="prenom" formControlName="prenom" placeholder="Prenom"  style="text-transform: capitalize;" autocomplete="off"/>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'Prenom est obligatoire',
+                    control: registrationForm.controls['prenom']
+                  }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'minlength',
+                    message: 'le prenom doit contenir minimun 4 symbols',
+                    control: registrationForm.controls['prenom']
+                  }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'maxLength',
+                    message: 'le prenom ne peut pas depasser 100 symbols',
+                    control: registrationForm.controls['prenom']
+                  }"></ng-container>
+              </div>
+              <!--end::Form group-->
+
+              <!--begin::Form group-->
+              <div class="form-group col-md-3">
+                <label class="font-size-h6 font-weight-bolder text-dark">Nom</label>
+                <input class="form-control form-control-solid h-auto py-5 px-6 rounded-lg font-size-h6" type="text"
+                  name="nom" formControlName="nom" placeholder="nom"style="text-transform: capitalize;" autocomplete="off" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'nom est obligatoire',
+                  control: registrationForm.controls['nom']
+                }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'minlength',
+                  message: 'le nom doit contenir minimun 4 symbols',
+                  control: registrationForm.controls['nom']
+                }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'maxLength',
+                  message: 'le nom ne peut pas depasser 100 symbols',
+                  control: registrationForm.controls['nom']
+                }"></ng-container>
+              </div>
+
+              <!-- end::row-->
+              <div class="form-group col-md-3">
+                <label class="font-size-h6 font-weight-bolder text-dark">Login</label>
+                <input class="form-control form-control-solid h-auto py-5 px-6 rounded-lg font-size-h6" type="text"
+                  name="login" formControlName="login" placeholder="login" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'login est obligatoire',
+                  control: registrationForm.controls['login']
+                }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'minlength',
+                  message: 'le login doit contenir minimun 4 symbols',
+                  control: registrationForm.controls['login']
+                }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'maxLength',
+                  message: 'le login ne peut pas depasser 100 symbols',
+                  control: registrationForm.controls['login']
+                }"></ng-container>
+                <div *ngIf="loginexist" class="alert-text text-danger">cet login est deja utiliser </div>
+              </div>
+              <!--end::Form group-->
+
+              <!--begin::Form group-->
+              <div class="form-group col-md-3">
+                <label class="font-size-h6 font-weight-bolder text-dark">Sexe</label>
+                <mat-select class="form-control form-control-solid h-auto py-5 px-6 rounded-lg font-size-h6" name="sexe"
+                  formControlName="sexe" autocomplete="off" >
+                  <mat-option *ngFor="let sex of sexes" [value]="sex.value">{{ sex.viewValue }}</mat-option>
+                </mat-select>
+
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'sexe is required',
+                  control: registrationForm.controls['sexe']
+                }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'minlength',
+                  message: 'Fullname should have at least 3 symbols',
+                  control: registrationForm.controls['sexe']
+                }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'maxLength',
+                  message: 'Fullname should have maximum 100 symbols',
+                  control: registrationForm.controls['sexe']
+                }"></ng-container>
+
+              </div>
+
+              <!--end::Form group-->
+            </div>
+
+
+
+            <!--begin::Form group-->
+
+            <!--end::Form group-->
+            <!-- begin::row-->
+            <div class="row">
+              <!--begin::Form group-->
+              <div class="form-group col-md-3">
+                <label class="font-size-h6 font-weight-bolder text-dark">Telephone</label>
+                <input class="form-control form-control-solid h-auto py-5 px-6 rounded-lg font-size-h6" type="number"
+                  name="telephone" formControlName="telephone" placeholder="Téléphone" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                validation: 'required',
+                message: 'le numero telephone est obligatoire',
+                control: registrationForm.controls['telephone']
+              }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                validation: 'minLength',
+                message: 'le telephone doit contenir minimun 9 chiffre',
+                control: registrationForm.controls['telephone']
+              }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                validation: 'maxLength',
+                message: 'le telephone ne peut pas depasser 12 chiffre',
+                control: registrationForm.controls['telephone']
+              }"></ng-container>
+              </div>
+
+              <!--end::Form group-->
+
+              <!--begin::Form group-->
+              <div class="form-group col-md-3">
+                <label class="font-size-h6 font-weight-bolder text-dark">Email</label>
+                <input class="form-control form-control-solid h-auto py-5 px-6 rounded-lg font-size-h6" type="email"
+                  placeholder="Email" name="email" formControlName="email" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'Email est obligatoire',
+                  control: registrationForm.controls['email']
+                }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'email',
+                  message: 'Email invalide',
+                  control: registrationForm.controls['email']
+                }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'minlength',
+                  message: 'Email doit contenir minimun 8 symbols',
+                  control: registrationForm.controls['email']
+                }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                  validation: 'maxLength',
+                  message: 'Email should have maximum 360 symbols',
+                  control: registrationForm.controls['email']
+                }"></ng-container>
+                <div *ngIf="mailexiste" class="alert-text text-danger">ce mail est deja utiliser </div>
+              </div>
+
+              <!--begin::Form group-->
+              <div class="form-group col-md-3">
+                <label class="font-size-h6 font-weight-bolder text-dark">Date de Naissance</label>
+                <input class="form-control form-control-solid h-auto py-5 px-6 rounded-lg font-size-h6" type="date"
+                  name="datenaissance" formControlName="datenaissance" placeholder="date de naissance" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                validation: 'required',
+                message: 'date de naissance obligatoire',
+                control: registrationForm.controls['datenaissance']
+              }"></ng-container>
+              </div>
+              <!--end::Form group-->
+              <!--begin::Form group-->
+              <div class="form-group col-md-3">
+                <label class="font-size-h6 font-weight-bolder text-dark">Adresse</label>
+                <input class="form-control form-control-solid h-auto py-5 px-6 rounded-lg font-size-h6" type="text"
+                  name="adresse" formControlName="adresse" style="text-transform: capitalize;" placeholder="adresse" autocomplete="off"  />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'adresse est obligatoire',
+              control: registrationForm.controls['adresse']
+            }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'minlength',
+              message: 'adresse doit avoir minimum 4 symbols',
+              control: registrationForm.controls['adresse']
+            }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'maxLength',
+              message: 'adresse peut contenir que 200 symbols',
+              control: registrationForm.controls['adresse']
+            }"></ng-container>
+              </div>
+              <!--end::Form group-->
+
+              <!--begin::Form group-->
+              <div class="form-group  col-md-3">
+                <label class="font-size-h6 font-weight-bolder text-dark">Profil</label>
+                <mat-select class="form-control form-control-solid h-auto py-5 px-6 rounded-lg font-size-h6"
+                  style="width: 100%;" name="profile" formControlName="profil" autocomplete="off">
+                  <mat-option *ngFor="let pro of profils" [value]="pro.libelle">{{ pro.libelle }}</mat-option>
+                </mat-select>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                validation: 'profil',
+                message: 'Fullname is required',
+                control: registrationForm.controls['profil']
+              }"></ng-container>
+              </div>
+              <!--end::Form group-->
+              <!--begin::Form group-->
+              <div class="form-group col-md-3">
+                <label class="font-size-h6 font-weight-bolder text-dark">Numéro de la carte d'identite</label>
+                <input class="form-control form-control-solid h-auto py-5 px-6 rounded-lg font-size-h6" type="number"
+                  name="cni" formControlName="cni" placeholder="numero cni" />
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+    validation: 'required',
+    message: 'ce champ est obligatoire',
+    control: registrationForm.controls['cni']
+  }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+    validation: 'minlength',
+    message: 'ce champ doit contenir minimum  13 symbols',
+    control: registrationForm.controls['cni']
+  }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+    validation: 'maxLength',
+    message: 'ce peut contenir que  50 symbols',
+    control: registrationForm.controls['cni']
+  }"></ng-container>
+              </div>
+
+              <!--end::Form group-->
+
+              <!--begin::Form group-->
+              <div class="form-group col-md-4">
+                <label class="font-size-h6 font-weight-bolder text-dark">Photo</label>
+                <input type="file" class="form-control form-control-solid h-auto py-5 px-6 rounded-lg font-size-h6"
+                  (change)="onSelectFile($event)">
+              </div>
+              <!--end::Form group-->
+            </div>
+            <!-- end::row-->
+
+            <!--begin::Form group-->
+            <ng-container *ngIf="hasError">
+              <div class="mb-10 alert alert-custom alert-light-danger alert-dismissible">
+                <div *ngIf="hasError" class="alert-text">Les informations sont incorrect</div>
+              </div>
+            </ng-container>
+            <div class="form-group d-flex flex-wrap pb-lg-0 pb-3">
+              <button type="submit" id="kt_login_signup_submit"
+                class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4"
+                [disabled]="registrationForm.invalid">
+
+                Valider
+              </button>
+              <button (click)="resset()" type="reset"
+                class="btn btn-danger font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">
+                Annuler
+              </button>
+
+              <ng-container *ngIf="isLoading$ | async">
+                <span class="spinner spinner-primary ml-5"></span>
+              </ng-container>
+            </div>
+            <!--end::Form group-->
+          </form>
+          <!--end::Form-->
+        </div>
+        <!--end::Signup-->
+
+
+      </ng-container>
+    </div>
+  </div>
+
+
+</div>
+
+<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+  <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+    <div class="fv-plugins-message-container">
+      <div class="fv-help-block">
+        {{ message }}
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

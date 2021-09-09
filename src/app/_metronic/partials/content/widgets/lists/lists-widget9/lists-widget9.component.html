@@ -1,0 +1,40 @@
+<div class="card card-custom card-stretch gutter-b">
+  <!-- Header -->
+  <div class="card-header align-items-center border-0 mt-4">
+    <h3 class="card-title align-items-start flex-column">
+      <span class="font-weight-bolder text-dark">Mes Activités</span>
+      <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
+    </h3>
+    <div class="card-toolbar">
+    </div>
+  </div>
+  <!-- Body -->
+  <div class="card-body pt-4">
+    <div class="timeline timeline-6 mt-3">
+      <!--begin::Item-->
+      <div class="timeline-item align-items-start" *ngFor="let act of activites.slice(0, 12)">
+        <!--begin::Label-->
+        <div class="timeline-label-lg-2 font-weight-bolder text-dark-75 font-size-lg">
+          {{act.date|date:'dd-MM-yyyy &nbsp;  HH:mm'}}&nbsp;&nbsp;&nbsp;
+        </div>
+        <!--end::Label-->
+
+        <!--begin::Badge-->
+        <div class="timeline-badge">
+         <i class="fa fa-genderless  icon-xl" [class.text-warning]="act.type === 'don' "
+            [class.text-primary]="act.type === 'orphelin' " [class.text-info]="act.type === 'adoption' "></i>
+        </div>
+        <!--end::Badge-->
+
+        <!--begin::Content-->
+        <div class="timeline-content font-weight-bolder font-size-lg text-dark-75 pl-3">
+          {{act.description}} 
+          <a href="#" class="text-primary"></a> 
+        </div>
+        <!--end::Content-->
+      </div>
+      <!--end::Item-->
+
+    </div>
+  </div>
+</div>
